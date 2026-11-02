@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kunststoffe – IGS Gerhard Ertl</title>
+<style>
+/* Design System „IGS Gerhard Ertl“ */
+:root{
+  --igs-blau:#003c69; --igs-orange:#ff6600; --igs-gelb:#ff9900;
+  --weiss:#ffffff; --grau-50:#f7f7f7; --grau-100:#f5f5f5; --grau-200:#eeeeee; --grau-300:#d6d6d6;
+  --grau-500:#999999; --grau-600:#666666; --text-dunkel:#463939; --schwarz:#000000;
+  --font-sans:Arial, Helvetica, sans-serif;
+  --space-1:8px; --space-2:15px; --space-3:24px; --space-4:48px;
+  --radius-none:0; --radius-md:6px; --radius-full:9999px;
+  --bg:var(--grau-200); --ink:var(--schwarz); --muted:var(--grau-600); --line:var(--grau-300);
+  --accent-soft:#e5ecf1;
+  /* Rückmeldefarben (funktional, nicht Teil des Schul-Designs) */
+  --ok:#1b7f45; --ok-soft:#e5f4ea; --bad:#c62f2f; --bad-soft:#fbeaea; --warn:#8a5a00; --warn-soft:#fff3df;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:var(--font-sans);background:var(--bg);color:var(--ink);font-size:16px;line-height:24px}
+button{font:inherit;color:inherit;cursor:pointer}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px}
+sub,sup{font-size:.7em;line-height:0}
+.f{font-family:"Cambria Math",Cambria,Georgia,"Times New Roman",serif;font-size:1.08em;white-space:nowrap}
+:focus-visible{outline:3px solid var(--igs-blau);outline-offset:2px}
+
+/* Kopfbereich */
+.top{background:var(--weiss);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.top-inner{display:flex;align-items:center;justify-content:space-between;gap:var(--space-2);flex-wrap:wrap;padding-top:10px;padding-bottom:0}
+.brand{display:flex;align-items:center;gap:var(--space-2);padding:0 0 10px}
+.brand .bb{display:flex;align-items:center;background:none;border:0;padding:0;text-align:left}
+.hub{border-left:1px solid var(--line);padding-left:var(--space-2);font-size:14px;line-height:18px;font-weight:700;color:var(--igs-blau);text-decoration:none;white-space:nowrap}
+.hub:hover{text-decoration:underline}
+.brand img{height:48px;width:auto;display:block}
+.logo{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.author{font-size:11px;line-height:13px;color:var(--muted);white-space:nowrap}
+.apptitle{border-left:1px solid var(--line);padding-left:var(--space-2)}
+.apptitle b{display:block;font-size:18px;line-height:22px;color:var(--igs-blau)}
+.apptitle small{display:block;color:var(--muted);font-size:13px;line-height:18px}
+.tabs{display:flex;gap:var(--space-3);align-self:flex-end}
+.tabs button{border:0;border-top:2px solid transparent;background:none;padding:var(--space-2) 0;font-weight:700;font-size:18px;line-height:24px;letter-spacing:.54px;text-transform:uppercase;color:var(--igs-blau)}
+.tabs button.on{border-top-color:var(--igs-orange)}
+.tabs button:hover{border-top-color:var(--grau-300)}
+.tabs button.on:hover{border-top-color:var(--igs-orange)}
+@media (max-width:560px){
+  .brand img{height:38px}
+  .brand{gap:10px}
+  .hub,.apptitle{padding-left:10px}
+  .hub{font-size:13px;line-height:16px}
+  .apptitle b{font-size:16px}
+  .tabs{gap:var(--space-2)}
+  .tabs button{font-size:15px;padding:10px 0}
+}
+
+main{padding-top:var(--space-3);padding-bottom:var(--space-4)}
+h1{font-size:32px;line-height:40px;margin:0 0 var(--space-1);color:var(--igs-blau)}
+h2{font-size:24px;line-height:32px;color:var(--igs-blau)}
+.muted{color:var(--muted)}
+.small{font-size:14px;line-height:20px}
+.center{text-align:center;margin-top:var(--space-3)}
+
+/* Buttons */
+.btn{border:2px solid var(--igs-blau);background:var(--weiss);color:var(--igs-blau);padding:10px var(--space-3);border-radius:var(--radius-md);font-weight:700}
+.btn:hover{background:var(--grau-100)}
+.btn.primary{background:var(--igs-blau);color:var(--weiss)}
+.btn.primary:hover{background:#00528f;border-color:#00528f}
+.btn.ghost{border-color:transparent;background:none}
+.btn.ghost:hover{text-decoration:underline}
+.btn:disabled{opacity:.5;cursor:default}
+
+/* Startseite */
+.hero{position:relative;background:var(--igs-blau);color:var(--weiss);padding:var(--space-4) var(--space-3);margin-bottom:var(--space-3);overflow:hidden}
+.hero h1{color:var(--weiss);font-size:36px;line-height:44px;max-width:520px;position:relative}
+.hero p{max-width:520px;margin:var(--space-1) 0 0;position:relative}
+.hero .kicker{font-size:14px;font-weight:700;letter-spacing:.54px;text-transform:uppercase;margin:0 0 var(--space-1);color:var(--weiss)}
+.hero .chain{position:absolute;right:-30px;top:50%;transform:translateY(-50%);width:300px;height:220px}
+@media (max-width:640px){.hero{padding:var(--space-3) var(--space-3) 150px}.hero h1{font-size:28px;line-height:36px}.hero .chain{top:auto;bottom:-40px;right:-30px;transform:none;width:240px;height:180px}}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--space-3)}
+.tile{display:flex;flex-direction:column;gap:var(--space-1);text-align:left;background:var(--weiss);border:0;border-top:4px solid var(--igs-orange);padding:var(--space-3)}
+.tile:hover{background:var(--grau-50)}
+.tile .num{width:36px;height:36px;display:grid;place-items:center;background:var(--igs-blau);color:var(--weiss);font-weight:700;font-size:18px}
+.tile b{font-size:20px;line-height:28px;color:var(--igs-blau)}
+.tile span.d{color:var(--muted);font-size:15px;line-height:22px;flex:1}
+.tile .more{color:var(--igs-blau);font-weight:700}
+.best{margin-top:var(--space-3);padding:var(--space-2) var(--space-3);background:var(--weiss);border-left:4px solid var(--ok);color:var(--ok);font-weight:700}
+
+/* Lernen */
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:var(--space-2);flex-wrap:wrap;margin-bottom:var(--space-2)}
+.seg{display:flex;background:var(--weiss);border:1px solid var(--line);border-radius:var(--radius-md);padding:3px;gap:2px;flex-wrap:wrap}
+.seg button{border:0;background:none;padding:6px 12px;border-radius:4px;font-size:14px;font-weight:700;color:var(--igs-blau)}
+.seg button.on{background:var(--igs-blau);color:var(--weiss)}
+.info{background:var(--weiss);border-left:4px solid var(--igs-orange);padding:var(--space-2) var(--space-3);margin:var(--space-2) 0}
+.info h3{margin:0 0 var(--space-1);font-size:20px;line-height:28px;color:var(--igs-blau)}
+.info p{margin:0 0 6px}
+.tips{margin:6px 0 0;padding-left:20px}
+.tips li{margin:3px 0}
+.grp{display:flex;align-items:center;gap:10px;margin:var(--space-4) 0 var(--space-2)}
+.grp::before{content:"";width:14px;height:14px;background:var(--igs-orange)}
+.info .big{font-size:20px;line-height:28px;font-weight:700;margin:4px 0 8px;color:var(--igs-blau)}
+
+/* Kunststoffgruppen */
+.gcards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:var(--space-2)}
+.gcard{background:var(--weiss);border-top:4px solid var(--igs-blau);padding:var(--space-2);display:flex;flex-direction:column;gap:6px}
+.gcard .gt{font-size:20px;line-height:28px;font-weight:700;color:var(--igs-blau)}
+.gcard svg{width:100%;height:90px;background:var(--grau-100)}
+.gcard .p{font-size:15px;line-height:22px}
+.gcard .ex{font-size:14px;line-height:20px;color:var(--text-dunkel)}
+.lbl2{font-size:12px;font-weight:700;letter-spacing:.54px;text-transform:uppercase;color:var(--muted)}
+
+/* Kunststoff-Baukasten */
+.kit{background:var(--weiss);padding:var(--space-3);border-top:4px solid var(--igs-blau)}
+.kit .lbl{font-size:14px;margin:2px 0 8px}
+.picks{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:var(--space-2)}
+.pick{border:2px solid var(--line);background:var(--weiss);border-radius:var(--radius-md);padding:6px 12px;font-size:14px;font-weight:700;color:var(--igs-blau)}
+.pick:hover{border-color:var(--igs-blau)}
+.pick.on{border-color:var(--igs-blau);background:var(--igs-blau);color:var(--weiss)}
+.steps{border-top:1px solid var(--grau-200);margin-top:4px;padding-top:var(--space-2)}
+.steps ol{margin:0;padding-left:22px}
+.steps li{margin:9px 0}
+.chainbox{display:block;margin-top:6px;background:var(--grau-100);padding:10px 12px;font-size:19px;overflow-x:auto;white-space:nowrap}
+.chainbox .u{border-bottom:3px solid var(--igs-orange)}
+.steps .res{margin-top:var(--space-2);background:var(--grau-100);border-left:4px solid var(--igs-gelb);padding:var(--space-2)}
+.steps .res .nm{font-size:20px;line-height:28px;font-weight:700;color:var(--igs-blau)}
+.fact{margin-top:var(--space-1);font-size:14px;line-height:20px;color:var(--text-dunkel)}
+.kv{display:grid;grid-template-columns:max-content 1fr;gap:4px 14px;margin-top:8px;font-size:15px}
+.kv dt{font-weight:700;color:var(--igs-blau)}
+.kv dd{margin:0}
+
+/* Tabellen */
+.tbl{width:100%;border-collapse:collapse;background:var(--weiss);font-size:15px}
+.tbl th{background:var(--igs-blau);color:var(--weiss);text-align:left;padding:8px 12px;font-size:14px}
+.tbl td{padding:8px 12px;border-top:1px solid var(--grau-200);vertical-align:middle}
+.tbl td.k{font-weight:700;color:var(--igs-blau);white-space:nowrap}
+.tblwrap{overflow-x:auto}
+.cov:not(.rev){color:transparent!important;background:repeating-linear-gradient(135deg,var(--grau-200) 0 6px,var(--grau-100) 6px 12px);cursor:pointer;user-select:none}
+.cov:not(.rev) *{color:transparent!important}
+
+/* Üben / Test */
+.panel{background:var(--weiss);padding:var(--space-3)}
+.lbl{font-weight:700;margin:4px 0 8px;color:var(--igs-blau)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:var(--space-3)}
+.chip{display:flex;align-items:center;gap:8px;border:2px solid var(--line);border-radius:var(--radius-md);padding:8px 14px;cursor:pointer;background:var(--weiss)}
+.chip:has(input:checked){border-color:var(--igs-blau);background:var(--accent-soft)}
+.chip input{accent-color:var(--igs-blau);margin:0}
+
+.qhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px;color:var(--igs-blau)}
+.stats{display:flex;gap:8px;flex-wrap:wrap}
+.stat{background:var(--weiss);padding:5px 12px;font-size:14px;font-weight:700;color:var(--igs-blau)}
+.stat.ok{color:var(--ok)} .stat.bad{color:var(--bad)} .stat.stk{color:var(--warn)}
+.bar{height:8px;background:var(--weiss);overflow:hidden;margin-bottom:var(--space-2)}
+.bar i{display:block;height:100%;background:var(--igs-orange);transition:width .3s}
+
+.qcard{background:var(--weiss);padding:var(--space-3)}
+.qtag{display:inline-block;font-size:12px;line-height:16px;font-weight:700;text-transform:uppercase;letter-spacing:.54px;padding:4px 10px;margin-bottom:var(--space-1);background:var(--grau-100);color:var(--igs-blau);border-left:4px solid var(--grau-500)}
+.qtag.t-groups{border-left-color:var(--igs-orange)}
+.qtag.t-react{border-left-color:var(--igs-blau)}
+.qtag.t-env{border-left-color:var(--igs-gelb)}
+.qtag.t-mix{border-left-color:var(--grau-600)}
+.prompt{font-size:20px;line-height:30px;margin:0 0 var(--space-2);font-weight:700;color:var(--schwarz)}
+
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:520px){.opts{grid-template-columns:1fr}}
+.opts.wide{grid-template-columns:1fr}
+.opt{display:flex;align-items:center;gap:10px;text-align:left;border:2px solid var(--line);background:var(--weiss);border-radius:var(--radius-md);padding:12px 14px;font-size:17px;min-height:54px}
+.opt:hover:not(:disabled){border-color:var(--igs-blau);background:var(--grau-50)}
+.opt .k{flex:none;width:24px;height:24px;background:var(--igs-blau);color:var(--weiss);font-size:12px;font-weight:700;display:grid;place-items:center}
+.opt:disabled{cursor:default}
+.opt.right{border-color:var(--ok);background:var(--ok-soft)}
+.opt.right .k{background:var(--ok)}
+.opt.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.opt.wrong .k{background:var(--bad)}
+
+.inrow{display:flex;gap:8px}
+.inrow input{flex:1;min-width:0;font-size:22px;padding:10px 14px;border:2px solid var(--line);border-radius:var(--radius-md);outline:none;background:var(--weiss);color:var(--schwarz);font-family:var(--font-sans)}
+.inrow input:focus{border-color:var(--igs-blau)}
+.inrow input.right{border-color:var(--ok);background:var(--ok-soft)}
+.inrow input.wrong{border-color:var(--bad);background:var(--bad-soft)}
+.hint{font-size:13px;line-height:19px;color:var(--muted);margin:8px 0 0}
+
+.match{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mcol{display:flex;flex-direction:column;gap:8px}
+.mitem{border:2px solid var(--line);background:var(--weiss);border-radius:var(--radius-md);padding:10px 12px;min-height:50px;font-size:16px;text-align:left}
+.mitem:hover:not(:disabled){border-color:var(--igs-blau)}
+.mitem.sel{border-color:var(--igs-blau);background:var(--accent-soft)}
+.mitem.done{border-color:var(--ok);background:var(--ok-soft);cursor:default}
+.mitem.wrong{border-color:var(--bad);background:var(--bad-soft);animation:shake .35s}
+@keyframes shake{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+
+/* Einordnen */
+.crow{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;padding:10px 0;border-top:1px solid var(--grau-200)}
+.crow:first-child{border-top:0}
+.crow .it{font-size:17px;font-weight:700}
+.cbtns{display:flex;gap:6px;flex-wrap:wrap}
+.cbtn{border:2px solid var(--line);background:var(--weiss);border-radius:var(--radius-md);padding:6px 10px;font-size:14px;font-weight:700;color:var(--igs-blau)}
+.cbtn:hover:not(:disabled){border-color:var(--igs-blau)}
+.cbtn.on{background:var(--igs-blau);border-color:var(--igs-blau);color:var(--weiss)}
+.cbtn.right{background:var(--ok-soft);border-color:var(--ok);color:var(--ok)}
+.cbtn.wrong{background:var(--bad-soft);border-color:var(--bad);color:var(--bad)}
+.cbtn:disabled{cursor:default}
+
+.fb{margin-top:var(--space-2);padding:12px var(--space-2);font-size:15px;line-height:22px;border-left:4px solid}
+.fb.ok{background:var(--ok-soft);border-color:var(--ok)}
+.fb.bad{background:var(--bad-soft);border-color:var(--bad)}
+.fb.part{background:var(--warn-soft);border-color:var(--igs-gelb)}
+.fb b.t{display:block;font-size:16px;margin-bottom:3px}
+.fb .ex{color:var(--text-dunkel);margin-top:4px}
+.qnav{display:flex;justify-content:flex-end;margin-top:var(--space-2);gap:8px}
+
+/* Ergebnis */
+.result{text-align:center;padding:var(--space-3)}
+.ring{width:150px;height:150px;border-radius:var(--radius-full);margin:6px auto 14px;display:grid;place-items:center}
+.ring div{width:118px;height:118px;border-radius:var(--radius-full);background:var(--weiss);display:grid;place-items:center;font-size:34px;font-weight:700;color:var(--igs-blau)}
+.sync{display:inline-block;margin-top:8px;font-size:14px;padding:6px 12px}
+.sync.on{background:var(--ok-soft);color:var(--ok);font-weight:700}
+.sync.off{background:var(--grau-100);color:var(--muted)}
+.review{text-align:left;margin-top:var(--space-3)}
+.review li{margin:8px 0}
+.actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:var(--space-3)}
+footer{color:var(--muted);font-size:13px;line-height:19px;text-align:center;padding:0 16px 30px}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-inner">
+    <div class="brand">
+      <button class="bb" data-go="home" aria-label="Zur Startseite"><span class="logo"><img src="data:image/png;base64,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" alt="IGS Gerhard Ertl" width="133" height="48"><span class="author">Stefan Schieben</span></span></button>
+      <a class="hub" id="hub" href="index.html">Chemie<br>Klasse 10</a>
+      <button class="bb" data-go="home" aria-label="Zur Startseite"><span class="apptitle"><b>Kunststoffe</b><small>Chemie-Trainer</small></span></button>
+    </div>
+    <nav class="tabs">
+      <button data-go="learn" data-tab="learn">Lernen</button>
+      <button data-go="train" data-tab="train">Üben</button>
+      <button data-go="test" data-tab="test">Test</button>
+    </nav>
+  </div>
+</header>
+<main class="wrap" id="app"></main>
+<footer>Tipp: Mit der Enter-Taste geht es zur nächsten Aufgabe. Bei Auswahlaufgaben kannst du auch 1–4 drücken.</footer>
+
+<script>
+"use strict";
+/* ============ Einstellungen ============ */
+const CONFIG = { PASS_PERCENT: 60 };
+
+/* ============ Daten ============ */
+/* Kunststoffe aus Polymerisation (Monomer mit Doppelbindung) */
+const ADD = [
+  {mono:"Ethen", mf:"CH2=CH2", ru:"CH2–CH2", poly:"Polyethen", abbr:"PE", alt:["Polyethylen"], code:"2 und 4", group:"Thermoplast",
+   use:"Tüten, Folien, Flaschen, Beschichtung von Pappbechern", fact:"PE schwimmt in Wasser – seine Dichte ist kleiner als 1 g/cm³."},
+  {mono:"Propen", mf:"CH2=CH–CH3", ru:"CH2–CH(CH3)", poly:"Polypropen", abbr:"PP", alt:["Polypropylen"], code:"5", group:"Thermoplast",
+   use:"Mehrwegbecher, Verschlüsse, Frischhaltedosen", fact:"PP bleibt bis etwa 100 °C formstabil und schwimmt in Wasser."},
+  {mono:"Vinylchlorid", mf:"CH2=CHCl", ru:"CH2–CHCl", poly:"Polyvinylchlorid", abbr:"PVC", alt:[], code:"3", group:"Thermoplast",
+   use:"Abflussrohre, Fensterrahmen, Kabelisolierung", fact:"Beim Verbrennen von PVC entsteht giftiger Chlorwasserstoff."},
+  {mono:"Styrol", mf:"CH2=CH–C6H5", ru:"CH2–CH(C6H5)", poly:"Polystyrol", abbr:"PS", alt:[], code:"6", group:"Thermoplast",
+   use:"Joghurtbecher, Styropor, CD-Hüllen", fact:"Geschäumtes PS (Styropor) besteht zum größten Teil aus Luft."},
+  {mono:"Tetrafluorethen", mf:"CF2=CF2", ru:"CF2–CF2", poly:"Polytetrafluorethen", abbr:"PTFE", alt:["Teflon","Polytetrafluorethylen"], code:"7", group:"Thermoplast",
+   use:"Antihaft-Beschichtung von Pfannen", fact:"PTFE ist unter dem Markennamen Teflon bekannt."}
+];
+/* weitere Kunststoffe */
+const OTHER = [
+  {poly:"Polyethylenterephthalat", abbr:"PET", alt:[], react:"Polykondensation", group:"Thermoplast", code:"1",
+   use:"Getränkeflaschen, Becher", fact:"Bei jeder Verknüpfung wird ein Wassermolekül abgespalten."},
+  {poly:"Polyamid (Nylon)", abbr:"PA", alt:["Nylon","Polyamid"], react:"Polykondensation", group:"Thermoplast", code:"7",
+   use:"Strumpfhosen, Seile, Zahnbürstenborsten", fact:"Der Nylon-Seiltrick zeigt eine Polykondensation an der Grenzfläche zweier Lösungen."},
+  {poly:"Polymilchsäure", abbr:"PLA", alt:["Polylactid"], react:"Polykondensation", group:"Thermoplast", code:"7",
+   use:"Bio-Becher, 3D-Druck", fact:"PLA ist biobasiert (aus Maisstärke) und nur in Industrie-Kompostieranlagen abbaubar."},
+  {poly:"Epoxidharz", abbr:"EP", alt:[], react:"Polyaddition", group:"Duroplast", code:"7",
+   use:"Zwei-Komponenten-Kleber, Bootsbau", fact:"Harz und Härter verbinden sich ohne Abspaltung zu einem eng vernetzten Duroplast."},
+  {poly:"Polyurethan", abbr:"PUR", alt:["PU"], react:"Polyaddition", group:null, code:"7",
+   use:"Bauschaum, Schaumstoffe, Lacke", fact:"Je nach Vernetzung kann Polyurethan Thermoplast, Elastomer oder Duroplast sein."}
+];
+ADD.forEach(p => { p.react = "Polymerisation"; });
+const ALLP = [...ADD, ...OTHER];
+const REACTIONS = ["Polymerisation","Polykondensation","Polyaddition"];
+const GROUPS = ["Thermoplast","Elastomer","Duroplast"];
+
+/* Gegenstände zum Einordnen */
+const ITEMS = [
+  {n:"Joghurtbecher (PS)", g:"Thermoplast"}, {n:"PET-Flasche", g:"Thermoplast"}, {n:"Frischhaltefolie (PE)", g:"Thermoplast"},
+  {n:"Mehrwegbecher (PP)", g:"Thermoplast"}, {n:"Abflussrohr (PVC)", g:"Thermoplast"},
+  {n:"Gummiband", g:"Elastomer"}, {n:"Fahrradschlauch", g:"Elastomer"}, {n:"Autoreifen", g:"Elastomer"}, {n:"Gummihandschuh", g:"Elastomer"},
+  {n:"Steckdose", g:"Duroplast"}, {n:"Topfgriff", g:"Duroplast"}, {n:"Ausgehärteter Zwei-Komponenten-Kleber", g:"Duroplast"}, {n:"Melamin-Geschirr", g:"Duroplast"}
+];
+
+/* Feste Aufgaben: erste Antwort ist richtig */
+const BANK = [
+  /* Kunststoffgruppen und Aufbau */
+  {cat:"groups", q:"Ein Kunststoff wird beim Erwärmen weich und lässt sich verformen. Zu welcher Gruppe gehört er?",
+   o:["Thermoplast","Elastomer","Duroplast","Keiner der drei Gruppen"], ex:"Thermoplaste werden beim Erwärmen weich und sind dann formbar."},
+  {cat:"groups", q:"Wie sind die Ketten in einem Duroplast miteinander verbunden?",
+   o:["eng vernetzt durch feste Bindungen","gar nicht verknüpft","weitmaschig verknüpft","nur durch schwache Anziehungskräfte"], ex:"Duroplaste sind engmaschig vernetzt – die Ketten können nicht aneinander vorbeigleiten."},
+  {cat:"groups", q:"Wie sind die Ketten in einem Elastomer miteinander verbunden?",
+   o:["weitmaschig verknüpft","gar nicht verknüpft","eng vernetzt","Es gibt keine Ketten."], ex:"Wenige Verknüpfungen erlauben das Dehnen und ziehen die Ketten danach zurück."},
+  {cat:"groups", q:"Warum geht ein Gummiband nach dem Dehnen wieder in seine Form zurück?",
+   o:["Die Verknüpfungen zwischen den Ketten ziehen die gestreckten Ketten zurück.","Die Ketten gleiten aneinander vorbei.","Das Gummiband schmilzt kurz.","Die Ketten brechen und bilden sich neu."], ex:"Das nennt man Elastizität."},
+  {cat:"groups", q:"Warum wird ein Thermoplast beim Erwärmen weich?",
+   o:["Die Ketten bewegen sich stärker und gleiten aneinander vorbei.","Die Bindungen in den Ketten brechen.","Die Ketten vernetzen sich.","Das Wasser im Kunststoff verdampft."], ex:"Zwischen den Ketten wirken nur schwache Anziehungskräfte – sie werden beim Erwärmen überwunden."},
+  {cat:"groups", q:"Was passiert mit einem Duroplast bei sehr starker Hitze?",
+   o:["Er zersetzt sich.","Er schmilzt und lässt sich neu formen.","Er wird elastisch.","Er löst sich in Luft auf, ohne Rückstand."], ex:"Bevor die eng vernetzten Ketten beweglich werden, brechen die Bindungen."},
+  {cat:"groups", q:"Welche Kunststoffgruppe lässt sich einschmelzen und daraus ein neues Produkt herstellen?",
+   o:["Thermoplaste","Duroplaste","Elastomere","alle drei gleich gut"], ex:"Nur Thermoplaste lassen sich einschmelzen – deshalb kann man sie werkstofflich recyceln."},
+  {cat:"groups", q:"Was ist ein Makromolekül?",
+   o:["ein sehr großes Molekül aus Tausenden Atomen","ein besonders kleines Molekül","ein Ion mit großer Ladung","ein Gemisch aus vielen Stoffen"], ex:"Kunststoffe bestehen aus Makromolekülen (makro = groß)."},
+  {cat:"groups", q:"Wie sind die Atome innerhalb einer Kunststoffkette verbunden?",
+   o:["durch Elektronenpaarbindungen","durch Ionenbindungen","durch Metallbindungen","gar nicht"], ex:"Die Atome in der Kette teilen sich Elektronenpaare."},
+  {cat:"groups", q:"Was bewirkt ein Weichmacher wie Glycerin in der Stärkefolie?",
+   o:["Er schiebt sich zwischen die Ketten und schwächt die Anziehung.","Er vernetzt die Ketten.","Er macht die Ketten kürzer.","Er macht die Folie wasserfest."], ex:"Mehr Abstand zwischen den Ketten → sie gleiten leichter → die Folie wird weicher."},
+  /* Herstellung */
+  {cat:"react", q:"Was braucht ein Monomer, damit es polymerisieren kann?",
+   o:["eine Doppelbindung","zwei Metall-Ionen","eine Ladung","ein Sauerstoff-Atom"], ex:"Die Doppelbindung wird geöffnet, dadurch können sich die Monomere verbinden."},
+  {cat:"react", q:"Bei welcher Polyreaktion wird bei jeder Verknüpfung ein kleines Molekül abgespalten?",
+   o:["Polykondensation","Polymerisation","Polyaddition","bei keiner"], ex:"Meist wird Wasser abgespalten."},
+  {cat:"react", q:"Wodurch unterscheidet sich die Polyaddition von der Polykondensation?",
+   o:["Bei der Polyaddition wird nichts abgespalten.","Bei der Polyaddition braucht man eine Doppelbindung.","Die Polyaddition liefert keine Makromoleküle.","Es gibt keinen Unterschied."], ex:"Beide brauchen Monomere mit zwei funktionellen Gruppen – nur bei der Polykondensation entsteht ein Nebenprodukt."},
+  {cat:"react", q:"Was brauchen Monomere für die Polykondensation und die Polyaddition?",
+   o:["zwei funktionelle Gruppen","eine Doppelbindung","Ladungen","ein Chlor-Atom"], ex:"Über die beiden funktionellen Gruppen kann jedes Monomer zwei Nachbarn binden."},
+  {cat:"react", q:"Welches kleine Molekül wird bei der Herstellung von PET abgespalten?",
+   o:["Wasser","Kohlenstoffdioxid","Sauerstoff","Wasserstoff"], ex:"PET entsteht durch Polykondensation – dabei wird Wasser abgespalten."},
+  {cat:"react", q:"Was passiert bei der Polymerisation mit der Doppelbindung des Monomers?",
+   o:["Sie wird geöffnet und zur Einfachbindung.","Sie bleibt erhalten.","Sie wird zur Dreifachbindung.","Sie wird als Wasser abgespalten."], ex:"Die frei werdenden Bindungsstellen verknüpfen die Monomere zur Kette."},
+  {cat:"react", q:"Was bedeutet das kleine n in –[CH₂–CH₂]ₙ– ?",
+   o:["Die Einheit wiederholt sich sehr oft (mehrere Tausend Mal).","Es gibt n Doppelbindungen.","Das Molekül hat eine Ladung.","n steht für Stickstoff."], ex:"Der Teil in der Klammer heißt Wiederholeinheit."},
+  /* Umwelt und Recycling */
+  {cat:"env", q:"Welche Kunststoffe schwimmen in Wasser?",
+   o:["PE und PP","PET und PS","PVC und PET","alle Kunststoffe"], ex:"PE und PP haben eine Dichte unter 1 g/cm³. So trennt man sie im Wasserbad."},
+  {cat:"env", q:"Was bedeutet „biobasiert“?",
+   o:["aus nachwachsenden Rohstoffen hergestellt","im Gartenkompost abbaubar","ohne Chemikalien hergestellt","besonders hitzebeständig"], ex:"Biobasiert sagt nichts darüber aus, ob ein Kunststoff abbaubar ist."},
+  {cat:"env", q:"Darf ein PLA-Becher in den Gartenkompost?",
+   o:["Nein – PLA wird nur in Industrie-Kompostieranlagen abgebaut.","Ja, er zersetzt sich in wenigen Tagen.","Ja, weil er aus Pflanzen ist.","Nein, weil PLA aus Erdöl ist."], ex:"PLA braucht etwa 60 °C und hohe Feuchtigkeit, um abgebaut zu werden."},
+  {cat:"env", q:"Was passiert bei der thermischen Verwertung?",
+   o:["Kunststoff wird verbrannt, die Wärme wird genutzt.","Kunststoff wird eingeschmolzen und neu geformt.","Kunststoff wird in kleine Moleküle zerlegt.","Kunststoff wird vergraben."], ex:"Der Rohstoff geht dabei verloren, es entsteht CO₂."},
+  {cat:"env", q:"Bei welchem Recycling wird Kunststoff wieder in kleine Moleküle zerlegt?",
+   o:["rohstoffliches Recycling","werkstoffliches Recycling","thermische Verwertung","Mehrweg"], ex:"Zum Beispiel durch Erhitzen ohne Sauerstoff (Pyrolyse) entstehen Öl und Gas."},
+  {cat:"env", q:"Warum müssen Kunststoffe für das werkstoffliche Recycling sortenrein sein?",
+   o:["Gemische ergeben schlechtere neue Produkte.","Sonst explodiert die Anlage.","Weil nur PET recycelt werden darf.","Damit sie schneller verbrennen."], ex:"Verschiedene Kunststoffe vertragen sich beim Einschmelzen schlecht."},
+  {cat:"env", q:"Was ist Mikroplastik?",
+   o:["Kunststoffteilchen kleiner als 5 mm","besonders dünne Folie","Kunststoff aus Mikroorganismen","ein Bio-Kunststoff"], ex:"Es entsteht z. B. durch Zerfall von Müll, Reifenabrieb und Fasern aus Kleidung."}
+];
+
+/* ============ Hilfsfunktionen ============ */
+const $ = s => document.querySelector(s);
+const app = $("#app");
+const rand = a => a[Math.floor(Math.random()*a.length)];
+function shuffle(a){ a = a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
+const fHTML = s => '<span class="f">' + s.replace(/([A-Za-z)])(\d+)/g, "$1<sub>$2</sub>") + "</span>";
+const ruHTML = p => fHTML("–[" + p.ru + "]–");
+const chainHTML = (p, n=3) => '<span class="f">–' + Array.from({length:n}, (_,i) =>
+  `<span class="${i===1?"u":""}">${p.ru.replace(/([A-Za-z)])(\d+)/g, "$1<sub>$2</sub>")}</span>`).join("–") + "–</span>";
+function normN(s){
+  return s.toLowerCase().replace(/ä/g,"ae").replace(/ö/g,"oe").replace(/ü/g,"ue").replace(/ß/g,"ss").replace(/[\s\-–()]/g,"");
+}
+function lev(a,b){
+  const m=a.length,n=b.length; if(Math.abs(m-n)>2) return 9;
+  let p=Array.from({length:n+1},(_,j)=>j);
+  for(let i=1;i<=m;i++){ const c=[i]; for(let j=1;j<=n;j++) c[j]=Math.min(p[j]+1,c[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1)); p=c; }
+  return p[n];
+}
+
+/* ============ Aufgaben ============ */
+const TAG = {groups:["Kunststoffgruppen","t-groups"], react:["Herstellung","t-react"], env:["Umwelt & Recycling","t-env"], mix:["Zuordnen","t-mix"]};
+const mcOpts = (correct, wrong) => shuffle([correct, ...wrong.slice(0,3)]).map(h => ({html:h, correct:h===correct}));
+
+const G = {
+  bank: b => ({kind:"mc", spec:{t:"bank", x:b}, tag:TAG[b.cat], prompt:b.q, options:mcOpts(b.o[0], shuffle(b.o.slice(1))), solution:b.o[0], ex:b.ex}),
+  monomer: p => ({kind:"mc", spec:{t:"monomer", x:p}, tag:TAG.react, prompt:`Aus welchem Monomer entsteht <b>${p.poly}</b> (${p.abbr})?`,
+    options:mcOpts(`${p.mono} ${fHTML(p.mf)}`, shuffle(ADD.filter(x=>x!==p)).map(x=>`${x.mono} ${fHTML(x.mf)}`)),
+    solution:`${p.mono} ${fHTML(p.mf)}`, ex:`Die Doppelbindung von ${p.mono} wird geöffnet: Wiederholeinheit ${ruHTML(p)}.`}),
+  unit: p => ({kind:"mc", spec:{t:"unit", x:p}, tag:TAG.react, prompt:`Welche Wiederholeinheit hat <b>${p.poly}</b>? Das Monomer ist ${p.mono} ${fHTML(p.mf)}.`,
+    options:mcOpts(ruHTML(p), shuffle(ADD.filter(x=>x!==p)).map(ruHTML)), solution:ruHTML(p),
+    ex:`Aus der Doppelbindung C=C wird eine Einfachbindung, an beiden Enden geht die Kette weiter.`}),
+  react: p => ({kind:"mc", spec:{t:"react", x:p}, tag:TAG.react, prompt:`Durch welche Polyreaktion entsteht <b>${p.poly}</b>?`,
+    options:REACTIONS.map(r => ({html:r, correct:r===p.react})), solution:p.react, ex:p.fact}),
+  name: p => ({kind:"input", spec:{t:"name", x:p}, tag:TAG.react, prompt:`Das Monomer <b>${p.mono}</b> ${fHTML(p.mf)} wird polymerisiert. Wie heißt der Kunststoff?`,
+    accept:[p.poly, ...p.alt], solution:`${p.poly} (${p.abbr})`, ex:`Name des Kunststoffs = „Poly“ + Name des Monomers.`}),
+  abbr: p => ({kind:"input", spec:{t:"abbr", x:p}, tag:TAG.react, prompt:`Welche Abkürzung hat <b>${p.poly}</b>?`,
+    accept:[p.abbr], abbr:true, solution:p.abbr, ex:`Verwendung: ${p.use}.`}),
+  code: p => ({kind:"mc", spec:{t:"code", x:p}, tag:TAG.env, prompt:`Auf einem Becher steht im Recycling-Dreieck die Zahl <b>${p.code}</b>. Welcher Kunststoff ist das?`,
+    options:mcOpts(`${p.abbr} – ${p.poly}`, shuffle(CODED.filter(x=>x!==p)).map(x=>`${x.abbr} – ${x.poly}`)), solution:`${p.abbr} – ${p.poly}`, ex:`Verwendung: ${p.use}.`}),
+  sort: list => ({kind:"sort", spec:{t:"sort", x:list}, tag:TAG.groups, prompt:"Ordne jeden Gegenstand der richtigen Kunststoffgruppe zu.", items:list,
+    solution:list.map(i => `${i.n}: ${i.g}`).join(" · "), ex:"Thermoplaste werden beim Erwärmen weich, Elastomere sind gummielastisch, Duroplaste bleiben hart."}),
+  matchAbbr: list => ({kind:"match", spec:{t:"matchAbbr", x:list}, tag:TAG.mix, prompt:"Ordne den Abkürzungen die richtigen Kunststoffe zu.",
+    pairs:list.map(p => ({l:p.abbr, r:p.poly})), solution:list.map(p => `${p.abbr} = ${p.poly}`).join(" · ")}),
+  matchReact: () => ({kind:"match", spec:{t:"matchReact"}, tag:TAG.mix, prompt:"Ordne jeder Polyreaktion das passende Merkmal zu.",
+    pairs:[{l:"Polymerisation", r:"Monomer mit Doppelbindung"}, {l:"Polykondensation", r:"kleines Molekül wird abgespalten"}, {l:"Polyaddition", r:"zwei funktionelle Gruppen, keine Abspaltung"}],
+    solution:"Polymerisation – Doppelbindung · Polykondensation – Abspaltung · Polyaddition – keine Abspaltung"}),
+  matchGroup: () => ({kind:"match", spec:{t:"matchGroup"}, tag:TAG.mix, prompt:"Ordne jeder Kunststoffgruppe ihren Aufbau zu.",
+    pairs:[{l:"Thermoplast", r:"Ketten nicht verknüpft"}, {l:"Elastomer", r:"Ketten weitmaschig verknüpft"}, {l:"Duroplast", r:"Ketten eng vernetzt"}],
+    solution:"Thermoplast – nicht verknüpft · Elastomer – weitmaschig · Duroplast – eng vernetzt"})
+};
+const CODED = ALLP.filter(p => /^\d$/.test(p.code) && p.code!=="7");
+function build(spec){
+  const f = G[spec.t];
+  return spec.x!==undefined ? f(spec.x) : f();
+}
+function randomSpec(cat, fmt){
+  const opts = [];
+  const bank = BANK.filter(b => b.cat===cat);
+  if(cat==="groups"){ bank.forEach(b => opts.push({t:"bank", x:b})); opts.push({t:"sort"}, {t:"sort"}, {t:"matchGroup"}); }
+  if(cat==="react"){
+    bank.forEach(b => opts.push({t:"bank", x:b}));
+    ADD.forEach(p => opts.push({t:"monomer", x:p}, {t:"unit", x:p}));
+    ALLP.forEach(p => opts.push({t:"react", x:p}));
+    if(fmt!=="mc"){ ADD.forEach(p => opts.push({t:"name", x:p})); ALLP.forEach(p => opts.push({t:"abbr", x:p})); }
+    opts.push({t:"matchAbbr"}, {t:"matchReact"});
+  }
+  if(cat==="env"){ bank.forEach(b => opts.push({t:"bank", x:b})); CODED.forEach(p => opts.push({t:"code", x:p}, {t:"code", x:p})); }
+  const s = rand(opts);
+  if(s.t==="sort") s.x = sortList();
+  if(s.t==="matchAbbr") s.x = shuffle(ALLP).slice(0,4);
+  return s;
+}
+function sortList(){
+  const by = g => shuffle(ITEMS.filter(i => i.g===g));
+  const pick = [...by("Thermoplast").slice(0,2), by("Elastomer")[0], by("Duroplast")[0]];
+  return shuffle(pick);
+}
+const specKey = s => s.t + ":" + (s.x && !Array.isArray(s.x) ? (s.x.q || s.x.poly) : "");
+
+/* ============ SCORM 1.2 ============ */
+const SCORM = {
+  api:null, done:false,
+  find(w){ let n=0; while(w && n<12){ try{ if(w.API) return w.API; }catch(e){ return null; } if(w.parent===w) break; w=w.parent; n++; } return null; },
+  init(){
+    this.api = this.find(window);
+    if(!this.api && window.opener) this.api = this.find(window.opener);
+    if(!this.api) return;
+    try{
+      this.api.LMSInitialize("");
+      const st = this.get("cmi.core.lesson_status");
+      if(!st || st==="not attempted") this.set("cmi.core.lesson_status","incomplete");
+      this.api.LMSCommit("");
+    }catch(e){ this.api = null; }
+  },
+  get(k){ try{ return this.api ? String(this.api.LMSGetValue(k)) : ""; }catch(e){ return ""; } },
+  set(k,v){ try{ this.api && this.api.LMSSetValue(k, String(v)); }catch(e){} },
+  best(){ const v = parseFloat(this.get("cmi.core.score.raw")); return isNaN(v) ? null : v; },
+  report(pct){
+    if(!this.api) return false;
+    const prev = this.best(), best = prev===null ? pct : Math.max(prev, pct);
+    this.set("cmi.core.score.min",0); this.set("cmi.core.score.max",100); this.set("cmi.core.score.raw",best);
+    this.set("cmi.core.lesson_status", best>=CONFIG.PASS_PERCENT ? "passed" : "failed");
+    try{ this.api.LMSCommit(""); }catch(e){}
+    return true;
+  },
+  finish(){ if(this.api && !this.done){ this.done = true; try{ this.api.LMSCommit(""); this.api.LMSFinish(""); }catch(e){} } }
+};
+SCORM.init();
+/* Link zur Übersicht: in Moodle (SCORM) ausblenden, im laufenden Test nachfragen */
+(() => { const h = document.getElementById("hub"); if(!h) return;
+  if(SCORM.api){ h.remove(); return; }
+  h.addEventListener("click", e => { if(testRunning && !confirm("Der Test läuft noch. Wirklich abbrechen?")) e.preventDefault(); });
+})();
+window.addEventListener("pagehide", () => SCORM.finish());
+window.addEventListener("beforeunload", () => SCORM.finish());
+
+/* ============ Navigation ============ */
+let testRunning = false;
+function setTab(name){
+  document.querySelectorAll(".tabs button").forEach(b => b.classList.toggle("on", b.dataset.tab===name));
+  window.scrollTo(0,0);
+}
+document.addEventListener("click", e => {
+  const g = e.target.closest("[data-go]"); if(!g) return;
+  if(testRunning && !confirm("Der Test läuft noch. Wirklich abbrechen?")) return;
+  testRunning = false;
+  ({home:viewHome, learn:viewLearn, train:viewTrainSetup, test:viewTestIntro})[g.dataset.go]();
+});
+
+/* ============ Grafiken ============ */
+const SVG_THERMO = `<svg viewBox="0 0 220 90" role="img" aria-label="lose, nicht verknüpfte Ketten"><g fill="none" stroke="#003c69" stroke-width="3" stroke-linecap="round">
+  <path d="M12 22 C50 8 90 34 130 20 S190 10 208 24"/><path d="M14 46 C40 58 80 32 120 48 S180 60 206 44"/><path d="M10 70 C50 60 100 82 150 68 S196 62 210 74"/></g></svg>`;
+const SVG_ELASTO = `<svg viewBox="0 0 220 90" role="img" aria-label="weitmaschig verknüpfte Ketten"><g fill="none" stroke="#003c69" stroke-width="3" stroke-linecap="round">
+  <path d="M12 22 C50 8 90 34 130 20 S190 10 208 24"/><path d="M14 48 C40 60 80 34 120 50 S180 62 206 46"/><path d="M10 72 C50 62 100 84 150 70 S196 64 210 76"/>
+  <path d="M60 20 L58 49"/><path d="M160 56 L158 70"/></g><g fill="#ff6600"><circle cx="60" cy="20" r="5"/><circle cx="58" cy="49" r="5"/><circle cx="160" cy="56" r="5"/><circle cx="158" cy="70" r="5"/></g></svg>`;
+const SVG_DURO = `<svg viewBox="0 0 220 90" role="img" aria-label="eng vernetzte Ketten"><g fill="none" stroke="#003c69" stroke-width="3" stroke-linecap="round">
+  <path d="M10 16 H210"/><path d="M10 45 H210"/><path d="M10 74 H210"/>
+  <path d="M35 16 V45 M85 16 V45 M135 16 V45 M185 16 V45 M60 45 V74 M110 45 V74 M160 45 V74"/></g>
+  <g fill="#ff6600"><circle cx="35" cy="16" r="4.5"/><circle cx="85" cy="16" r="4.5"/><circle cx="135" cy="16" r="4.5"/><circle cx="185" cy="16" r="4.5"/>
+  <circle cx="35" cy="45" r="4.5"/><circle cx="60" cy="45" r="4.5"/><circle cx="85" cy="45" r="4.5"/><circle cx="110" cy="45" r="4.5"/><circle cx="135" cy="45" r="4.5"/><circle cx="160" cy="45" r="4.5"/><circle cx="185" cy="45" r="4.5"/>
+  <circle cx="60" cy="74" r="4.5"/><circle cx="110" cy="74" r="4.5"/><circle cx="160" cy="74" r="4.5"/></g></svg>`;
+
+/* ============ Startseite ============ */
+function viewHome(){
+  setTab("home");
+  const best = SCORM.best();
+  app.innerHTML = `
+  <section class="hero">
+    <p class="kicker">Chemie · Klasse 10</p>
+    <h1>Schöne neue Kunststoffwelt</h1>
+    <p>Kunststoffe bestehen aus riesigen Kettenmolekülen. Hier lernst du die drei Kunststoffgruppen kennen, wie aus kleinen Monomeren lange Polymere werden und was mit Kunststoff nach dem Gebrauch passiert.</p>
+    <svg class="chain" viewBox="0 0 300 220" aria-hidden="true">
+      <g fill="none" stroke="#ff6600" stroke-width="5" stroke-linecap="round">
+        <path d="M20 60 C80 20 140 100 200 60 S280 30 300 50"/><path d="M10 120 C70 160 130 80 190 120 S270 150 300 130"/><path d="M30 180 C90 150 150 210 210 180 S280 160 300 175"/>
+        <path d="M120 70 L118 112"/><path d="M220 128 L222 176"/>
+      </g>
+      <g fill="#ff9900"><circle cx="120" cy="70" r="10"/><circle cx="118" cy="112" r="10"/><circle cx="220" cy="128" r="10"/><circle cx="222" cy="176" r="10"/></g>
+    </svg>
+  </section>
+  <div class="tiles">
+    <button class="tile" data-go="learn"><span class="num">1</span><b>Lernen</b>
+      <span class="d">Kunststoffgruppen, Kunststoff-Baukasten, Polyreaktionen und Recycling im Überblick.</span><span class="more">Jetzt lernen →</span></button>
+    <button class="tile" data-go="train"><span class="num">2</span><b>Üben</b>
+      <span class="d">Gruppen, Herstellung und Recycling – Fehler kommen wieder, bis sie sitzen.</span><span class="more">Jetzt üben →</span></button>
+    <button class="tile" data-go="test"><span class="num">3</span><b>Test</b>
+      <span class="d">${TEST_PLAN.length} gemischte Aufgaben. ${SCORM.api ? "Dein bestes Ergebnis wird in Moodle gespeichert." : "Am Ende siehst du deine Punktzahl."}</span><span class="more">Test starten →</span></button>
+  </div>
+  ${best!==null ? `<div class="best">Dein bisher bestes Testergebnis: ${best} %</div>` : ""}`;
+}
+
+/* ============ Lernen ============ */
+const KIT = {i:0};
+function viewLearn(){
+  setTab("learn");
+  app.innerHTML = `
+  <h1>Lernen</h1>
+  <div class="info">
+    <h3>Kunststoffe sind Makromoleküle</h3>
+    <p class="big">viele Monomere → ein Polymer</p>
+    <p>Kunststoffe bestehen aus sehr langen Kettenmolekülen, den <b>Makromolekülen</b>. Sie entstehen, wenn sich sehr viele kleine Moleküle (<b>Monomere</b>) zu einem <b>Polymer</b> verbinden (poly = viel).</p>
+    <ul class="tips">
+      <li>In der Kette sind die Atome durch <b>Elektronenpaarbindungen</b> fest verbunden.</li>
+      <li>Zwischen verschiedenen Ketten wirken nur <b>schwache Anziehungskräfte</b>.</li>
+      <li>Wie stark die Ketten miteinander <b>verknüpft</b> sind, bestimmt die Eigenschaften des Kunststoffs.</li>
+    </ul>
+  </div>
+
+  <h2 class="grp">Drei Kunststoffgruppen</h2>
+  <div class="gcards">
+    <div class="gcard"><span class="lbl2">Ketten nicht verknüpft</span><span class="gt">Thermoplast</span>${SVG_THERMO}
+      <span class="p">Wird beim Erwärmen <b>weich und formbar</b>, beim Abkühlen wieder fest. Lässt sich einschmelzen und recyceln.</span>
+      <span class="ex">Beispiele: PE, PP, PS, PET, PVC</span></div>
+    <div class="gcard"><span class="lbl2">weitmaschig verknüpft</span><span class="gt">Elastomer</span>${SVG_ELASTO}
+      <span class="p"><b>Gummielastisch</b>: lässt sich dehnen und geht zurück. Schmilzt beim Erwärmen nicht.</span>
+      <span class="ex">Beispiele: Gummiband, Fahrradschlauch, Autoreifen</span></div>
+    <div class="gcard"><span class="lbl2">eng vernetzt</span><span class="gt">Duroplast</span>${SVG_DURO}
+      <span class="p">Bleibt <b>hart</b>, auch beim Erwärmen. Bei starker Hitze <b>zersetzt</b> er sich.</span>
+      <span class="ex">Beispiele: Steckdose, Topfgriff, ausgehärteter Epoxidkleber</span></div>
+  </div>
+
+  <h2 class="grp">Kunststoff-Baukasten: Polymerisation</h2>
+  <div class="kit" id="kit"></div>
+
+  <h2 class="grp">Drei Wege zum Polymer</h2>
+  <div class="tblwrap"><table class="tbl">
+    <thead><tr><th>Polyreaktion</th><th>Was braucht das Monomer?</th><th>Abspaltung?</th><th>Beispiele</th></tr></thead>
+    <tbody>
+      <tr><td class="k">Polymerisation</td><td>eine Doppelbindung</td><td>nein</td><td>PE, PP, PVC, PS</td></tr>
+      <tr><td class="k">Polykondensation</td><td>zwei funktionelle Gruppen</td><td>ja, z. B. Wasser</td><td>PET, Nylon, PLA</td></tr>
+      <tr><td class="k">Polyaddition</td><td>zwei funktionelle Gruppen</td><td>nein</td><td>Epoxidharz, Polyurethan</td></tr>
+    </tbody></table></div>
+
+  <div class="sec-head" style="margin-top:30px"><h2 class="grp" style="margin:0">Kunststoffe im Überblick</h2>
+    <div class="seg" id="seg">
+      <button data-cover="none" class="on">Alles zeigen</button>
+      <button data-cover="a">Abkürzungen abdecken</button>
+      <button data-cover="n">Namen abdecken</button>
+    </div>
+  </div>
+  <p class="muted small">Recycling-Code = Zahl im Dreieck auf der Verpackung.<span id="covhint" hidden> Tippe auf ein abgedecktes Feld, um es aufzudecken.</span></p>
+  <div class="tblwrap"><table class="tbl">
+    <thead><tr><th>Abk.</th><th>Name</th><th>Code</th><th>Entsteht durch</th><th>Verwendung</th></tr></thead>
+    <tbody>${ALLP.map(p => `<tr><td class="k" data-c="a">${p.abbr}</td><td data-c="n">${p.poly}</td><td>${p.code}</td><td>${p.react}</td><td>${p.use}</td></tr>`).join("")}</tbody>
+  </table></div>
+
+  <div class="info" style="margin-top:30px">
+    <h3>Wohin mit dem Kunststoff?</h3>
+    <ul class="tips">
+      <li><b>Werkstoffliches Recycling:</b> sortieren, einschmelzen, neu formen – nur bei Thermoplasten und nur sortenrein gut.</li>
+      <li><b>Rohstoffliches Recycling:</b> Kunststoff wird in kleine Moleküle (Öl, Gas) zerlegt – daraus entstehen neue Stoffe.</li>
+      <li><b>Thermische Verwertung:</b> Verbrennung, die Wärme wird genutzt. Der Rohstoff geht verloren, es entsteht CO<sub>2</sub>.</li>
+      <li><b>Schwimm-Sink-Trennung:</b> PE und PP schwimmen in Wasser, PS und PET sinken.</li>
+      <li><b>Biobasiert</b> heißt „aus Pflanzen“ – nicht automatisch „abbaubar“. PLA zersetzt sich nur in Industrie-Kompostieranlagen.</li>
+      <li><b>Mikroplastik</b> sind Kunststoffteilchen kleiner als 5 mm.</li>
+    </ul>
+  </div>
+  <div class="center"><button class="btn primary" data-go="train">Jetzt üben →</button></div>`;
+
+  renderKit();
+  $("#seg").addEventListener("click", e => {
+    const b = e.target.closest("button"); if(!b) return;
+    document.querySelectorAll("#seg button").forEach(x => x.classList.toggle("on", x===b));
+    const m = b.dataset.cover;
+    document.querySelectorAll("[data-c]").forEach(el => { el.classList.toggle("cov", el.dataset.c===m); el.classList.remove("rev"); });
+    $("#covhint").hidden = m==="none";
+  });
+  app.querySelectorAll("[data-c]").forEach(el => el.addEventListener("click", () => { if(el.classList.contains("cov")) el.classList.toggle("rev"); }));
+}
+function renderKit(){
+  const p = ADD[KIT.i];
+  $("#kit").innerHTML = `
+    <div class="lbl">Wähle ein Monomer</div>
+    <div class="picks">${ADD.map((x,i)=>`<button class="pick ${i===KIT.i?"on":""}" data-i="${i}">${x.mono}</button>`).join("")}</div>
+    <div class="steps"><ol>
+      <li>Das Monomer <b>${p.mono}</b> ${fHTML(p.mf)} hat eine <b>Doppelbindung</b> zwischen zwei C-Atomen.</li>
+      <li>Die Doppelbindung wird <b>geöffnet</b>. Jedes der beiden C-Atome hat jetzt eine freie Bindungsstelle.</li>
+      <li>Über die freien Stellen verbinden sich Tausende Monomere zu einer langen Kette:
+        <span class="chainbox">${chainHTML(p, 4)}</span>
+        <span class="hint">Orange unterstrichen: eine Wiederholeinheit ${ruHTML(p)}</span></li>
+    </ol>
+    <div class="res"><div class="nm">${p.poly} (${p.abbr})</div>
+      <dl class="kv"><dt>Kurzschreibweise</dt><dd>n ${fHTML(p.mf)} → ${fHTML("–[" + p.ru + "]").replace("</span>","<sub>n</sub>–</span>")}</dd>
+        <dt>Gruppe</dt><dd>${p.group}</dd><dt>Recycling-Code</dt><dd>${p.code}</dd><dt>Verwendung</dt><dd>${p.use}</dd></dl>
+      <div class="fact">💡 ${p.fact}</div></div></div>`;
+  $("#kit").querySelectorAll(".pick").forEach(b => b.onclick = () => { KIT.i = +b.dataset.i; renderKit(); });
+}
+
+/* ============ Aufgabe anzeigen ============ */
+let nextHandler = null;
+document.addEventListener("keydown", e => {
+  if(e.key==="Enter" && nextHandler && !e.target.closest("input")){ e.preventDefault(); nextHandler(); return; }
+  if(/^[1-4]$/.test(e.key) && !e.target.closest("input")){
+    const o = document.querySelectorAll(".opt:not(:disabled)")[+e.key-1]; if(o) o.click();
+  }
+});
+function renderQuestion(q, header, onAnswered, onNext){
+  nextHandler = null;
+  app.innerHTML = `${header}
+  <div class="qcard">
+    <span class="qtag ${q.tag[1]}">${q.tag[0]}</span>
+    <h2 class="prompt">${q.prompt}</h2>
+    <div id="qbody"></div>
+    <div id="fb" class="fb" hidden></div>
+    <div class="qnav"><button class="btn primary" id="next" hidden>Weiter →</button></div>
+  </div>`;
+  const body = $("#qbody");
+  const coarse = matchMedia("(pointer:coarse)").matches;
+  let answered = false;
+  const finish = (score, title, extra) => {
+    if(answered) return; answered = true;
+    const fb = $("#fb");
+    fb.className = "fb " + (score>=.999 ? "ok" : score>0 ? "part" : "bad");
+    fb.innerHTML = `<b class="t">${title}</b>${extra||""}${q.ex ? `<div class="ex">${q.ex}</div>` : ""}`;
+    fb.hidden = false;
+    const nb = $("#next"); nb.hidden = false;
+    nextHandler = () => { nextHandler = null; onNext(); };
+    nb.onclick = nextHandler;
+    onAnswered(score);
+    setTimeout(() => { nb.focus({preventScroll:true}); fb.scrollIntoView({block:"nearest", behavior:"smooth"}); }, 30);
+  };
+
+  if(q.kind==="mc"){
+    body.innerHTML = `<div class="opts ${q.options.some(o=>o.html.length>40)?"wide":""}">${q.options.map((o,i) =>
+      `<button class="opt" data-i="${i}"><span class="k">${i+1}</span><span>${o.html}</span></button>`).join("")}</div>`;
+    body.querySelectorAll(".opt").forEach(b => b.addEventListener("click", () => {
+      const o = q.options[+b.dataset.i];
+      body.querySelectorAll(".opt").forEach((x,i) => { x.disabled = true; if(q.options[i].correct) x.classList.add("right"); });
+      if(o.correct) finish(1, "Richtig! 🎉");
+      else { b.classList.add("wrong"); finish(0, "Leider falsch.", `<div>Richtig ist: ${q.solution}</div>`); }
+    }));
+  }
+
+  if(q.kind==="input"){
+    body.innerHTML = `
+      <div class="inrow">
+        <input id="ans" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+          placeholder="${q.abbr ? "Abkürzung eingeben" : "Name eingeben"}" aria-label="Antwort">
+        <button class="btn primary" id="chk">Prüfen</button>
+      </div>`;
+    const inp = $("#ans");
+    if(!coarse) inp.focus();
+    const submit = () => {
+      if(answered) return;
+      const raw = inp.value.trim();
+      inp.readOnly = true; $("#chk").disabled = true;
+      let ok = false, note = "";
+      if(!raw){ ok = false; }
+      else if(q.abbr){
+        if(q.accept.includes(raw)) ok = true;
+        else if(q.accept.some(a => a.toLowerCase()===raw.toLowerCase())){ ok = true; note = `Abkürzungen schreibt man groß: <b>${q.accept[0]}</b>`; }
+      } else {
+        const u = normN(raw), t = q.accept.map(normN);
+        if(t.includes(u)) ok = true;
+        else if(t.some(x => lev(u,x)<=1)){ ok = true; note = `Kleiner Tippfehler – richtig geschrieben: <b>${q.accept[0]}</b>`; }
+        else if(ADD.some(p => p.abbr.toLowerCase()===raw.toLowerCase() && q.accept[0]===p.poly)){ ok = true; note = `Das ist die Abkürzung. Der Name lautet <b>${q.accept[0]}</b>.`; }
+      }
+      inp.classList.add(ok ? "right" : "wrong");
+      if(ok) finish(1, "Richtig! 🎉", note ? `<div>${note}</div>` : "");
+      else finish(0, raw ? "Leider falsch." : "Du hast nichts eingegeben.", `<div>Richtig ist: ${q.solution}</div>`);
+    };
+    $("#chk").onclick = submit;
+    inp.addEventListener("keydown", e => { if(e.key==="Enter"){ e.preventDefault(); if(answered && nextHandler) nextHandler(); else submit(); } });
+  }
+
+  if(q.kind==="sort"){
+    const choice = q.items.map(() => null);
+    body.innerHTML = `<div>${q.items.map((it,r) => `
+      <div class="crow"><span class="it">${it.n}</span><div class="cbtns">${GROUPS.map(g =>
+        `<button class="cbtn" data-r="${r}" data-g="${g}">${g}</button>`).join("")}</div></div>`).join("")}</div>
+      <div class="qnav" style="justify-content:space-between;align-items:center">
+        <p class="hint" style="margin:0">Wähle für jeden Gegenstand eine Gruppe.</p>
+        <button class="btn primary" id="chk" disabled>Prüfen</button>
+      </div>`;
+    body.querySelectorAll(".cbtn").forEach(b => b.addEventListener("click", () => {
+      if(answered) return;
+      const r = +b.dataset.r; choice[r] = b.dataset.g;
+      body.querySelectorAll(`.cbtn[data-r="${r}"]`).forEach(x => x.classList.toggle("on", x===b));
+      $("#chk").disabled = choice.some(c => c===null);
+    }));
+    $("#chk").onclick = () => {
+      if(answered) return;
+      let right = 0;
+      q.items.forEach((it,r) => {
+        body.querySelectorAll(`.cbtn[data-r="${r}"]`).forEach(x => {
+          x.disabled = true; x.classList.remove("on");
+          if(x.dataset.g===it.g) x.classList.add("right");
+          else if(x.dataset.g===choice[r]) x.classList.add("wrong");
+        });
+        if(choice[r]===it.g) right++;
+      });
+      $("#chk").disabled = true;
+      const n = q.items.length;
+      if(right===n) finish(1, "Alles richtig eingeordnet! 🎉");
+      else finish(right/n, `${right} von ${n} richtig.`, `<div>Richtig: ${q.solution}</div>`);
+    };
+  }
+
+  if(q.kind==="match"){
+    const L = shuffle(q.pairs.map((p,i)=>({i, html:p.l})));
+    const R = shuffle(q.pairs.map((p,i)=>({i, html:p.r})));
+    body.innerHTML = `
+      <div class="match">
+        <div class="mcol">${L.map(x=>`<button class="mitem" data-s="L" data-i="${x.i}">${x.html}</button>`).join("")}</div>
+        <div class="mcol">${R.map(x=>`<button class="mitem" data-s="R" data-i="${x.i}">${x.html}</button>`).join("")}</div>
+      </div>
+      <p class="hint">Tippe links einen Begriff an und dann rechts das passende Gegenstück.</p>`;
+    let sel = null, mistakes = 0, left = q.pairs.length;
+    body.querySelectorAll(".mitem").forEach(b => b.addEventListener("click", () => {
+      if(b.classList.contains("done")) return;
+      if(!sel || sel.dataset.s===b.dataset.s){
+        if(sel) sel.classList.remove("sel");
+        sel = (sel===b) ? null : b; if(sel) sel.classList.add("sel"); return;
+      }
+      const a = sel; sel = null; a.classList.remove("sel");
+      if(a.dataset.i===b.dataset.i){
+        [a,b].forEach(x => { x.classList.add("done"); x.disabled = true; });
+        if(--left===0){
+          const n = q.pairs.length, sc = Math.max(0, (n-mistakes)/n);
+          if(mistakes===0) finish(1, "Alles richtig zugeordnet! 🎉");
+          else finish(sc, `Geschafft – mit ${mistakes} Fehlversuch${mistakes>1?"en":""}.`, `<div>Richtig: ${q.solution}</div>`);
+        }
+      } else {
+        mistakes++;
+        [a,b].forEach(x => { x.classList.remove("wrong"); void x.offsetWidth; x.classList.add("wrong"); setTimeout(()=>x.classList.remove("wrong"), 600); });
+      }
+    }));
+  }
+}
+
+/* ============ Üben ============ */
+let T = null;
+function viewTrainSetup(){
+  setTab("train");
+  app.innerHTML = `
+  <h1>Üben</h1>
+  <p class="muted">Wähle aus, was du üben möchtest. Falsch beantwortete Aufgaben kommen nach kurzer Zeit wieder.</p>
+  <div class="panel">
+    <p class="lbl">Was möchtest du üben?</p>
+    <div class="chips">
+      <label class="chip"><input type="checkbox" name="cat" value="groups" checked> Kunststoffgruppen &amp; Aufbau</label>
+      <label class="chip"><input type="checkbox" name="cat" value="react" checked> Herstellung (Polyreaktionen)</label>
+      <label class="chip"><input type="checkbox" name="cat" value="env" checked> Umwelt &amp; Recycling</label>
+    </div>
+    <p class="lbl">Wie möchtest du antworten?</p>
+    <div class="chips">
+      <label class="chip"><input type="radio" name="fmt" value="mc"> Nur Auswahl (leichter)</label>
+      <label class="chip"><input type="radio" name="fmt" value="mix" checked> Auswahl + Eintippen</label>
+    </div>
+    <button class="btn primary" id="go">Los geht's →</button>
+    <p class="hint" id="err" hidden style="color:var(--bad)">Bitte wähle mindestens einen Bereich aus.</p>
+  </div>`;
+  $("#go").onclick = () => {
+    const cats = [...document.querySelectorAll("input[name=cat]:checked")].map(x=>x.value);
+    if(!cats.length){ $("#err").hidden = false; return; }
+    startTrain(cats, document.querySelector("input[name=fmt]:checked").value, []);
+  };
+}
+function startTrain(cats, fmt, preload){
+  T = {cats, fmt, ok:0, bad:0, streak:0, best:0, n:0, last:"", repeat:preload.map((s,i)=>({spec:s, due:i+1}))};
+  nextTrain();
+}
+function trainHeader(){
+  return `<div class="qhead"><div class="stats" id="stats">${trainStats()}</div><button class="btn ghost" data-go="train">Beenden</button></div>`;
+}
+function trainStats(){
+  return `<span class="stat ok">✔ ${T.ok}</span><span class="stat bad">✘ ${T.bad}</span>
+    <span class="stat stk">🔥 Serie ${T.streak}${T.best>1 ? ` (Rekord ${T.best})` : ""}</span>
+    ${T.repeat.length ? `<span class="stat">↻ ${T.repeat.length} zum Wiederholen</span>` : ""}`;
+}
+function nextTrain(){
+  T.n++;
+  let spec;
+  const d = T.repeat.findIndex(r => r.due<=T.n);
+  if(d>=0) spec = T.repeat.splice(d,1)[0].spec;
+  else { let tries = 0; do { spec = randomSpec(rand(T.cats), T.fmt); tries++; } while(specKey(spec)===T.last && tries<10); }
+  T.last = specKey(spec);
+  const q = build(spec);
+  renderQuestion(q, trainHeader(), score => {
+    if(score>=.999){ T.ok++; T.streak++; T.best = Math.max(T.best, T.streak); }
+    else { T.bad++; T.streak = 0; T.repeat.push({spec, due:T.n+3}); }
+    $("#stats").innerHTML = trainStats();
+  }, nextTrain);
+}
+
+/* ============ Test ============ */
+const TEST_PLAN = ["bank:groups","bank:groups","bank:groups","bank:groups","sort","matchGroup",
+  "bank:react","bank:react","bank:react","monomer","monomer","unit","react","react","name","abbr","matchAbbr",
+  "bank:env","bank:env","code"];
+let TS = null;
+function viewTestIntro(){
+  setTab("test");
+  const best = SCORM.best();
+  app.innerHTML = `
+  <h1>Test</h1>
+  <div class="panel">
+    <p>Der Test hat <b>${TEST_PLAN.length} Aufgaben</b> zu Kunststoffgruppen, Herstellung und Recycling: auswählen, zuordnen und Namen eintippen.</p>
+    <p>Nach jeder Aufgabe siehst du, ob du richtig lagst. Ab <b>${CONFIG.PASS_PERCENT} %</b> hast du bestanden.</p>
+    ${SCORM.api ? `<p class="muted small">Dein Ergebnis wird in Moodle gespeichert. Du kannst den Test beliebig oft wiederholen – es zählt dein bestes Ergebnis.${best!==null ? ` Bisher bestes Ergebnis: <b>${best} %</b>.` : ""}</p>` : ""}
+    <button class="btn primary" id="go">Test starten →</button>
+  </div>`;
+  $("#go").onclick = startTest;
+}
+function buildTest(){
+  const pools = {
+    "bank:groups": shuffle(BANK.filter(b=>b.cat==="groups")), "bank:react": shuffle(BANK.filter(b=>b.cat==="react")), "bank:env": shuffle(BANK.filter(b=>b.cat==="env")),
+    monomer: shuffle(ADD), unit: shuffle(ADD), react: shuffle(OTHER.concat(ADD.slice(0,2))), name: shuffle(ADD), abbr: shuffle(ALLP), code: shuffle(CODED)
+  };
+  const used = new Set();
+  return shuffle(TEST_PLAN.map(t => {
+    if(t==="sort") return G.sort(sortList());
+    if(t==="matchGroup") return G.matchGroup();
+    if(t==="matchAbbr") return G.matchAbbr(shuffle(ALLP).slice(0,4));
+    const list = pools[t];
+    let x = list.find(i => !used.has(t+"|"+(i.q||i.poly))) || rand(list);
+    used.add(t+"|"+(x.q||x.poly));
+    return t.startsWith("bank") ? G.bank(x) : G[t](x);
+  }));
+}
+function startTest(){ TS = {qs:buildTest(), i:0, score:0, log:[]}; testRunning = true; showTestQ(); }
+const fmtPts = x => (Math.round(x*100)/100).toString().replace(".",",");
+function showTestQ(){
+  const q = TS.qs[TS.i], n = TS.qs.length;
+  const header = `<div class="qhead"><b>Aufgabe ${TS.i+1} von ${n}</b><span class="stat">Punkte: <span id="pts">${fmtPts(TS.score)}</span></span></div>
+    <div class="bar"><i style="width:${TS.i/n*100}%"></i></div>`;
+  renderQuestion(q, header, score => { TS.score += score; TS.log.push({q, score}); $("#pts").textContent = fmtPts(TS.score); },
+    () => { TS.i++; if(TS.i<TS.qs.length) showTestQ(); else showResult(); });
+}
+function showResult(){
+  testRunning = false;
+  setTab("test");
+  const n = TS.qs.length, pct = Math.round(TS.score/n*100);
+  const sent = SCORM.report(pct), passed = pct>=CONFIG.PASS_PERCENT;
+  const col = passed ? "var(--igs-blau)" : "var(--igs-orange)";
+  const msg = pct===100 ? "Perfekt! Du beherrschst alles. 🏆" : pct>=85 ? "Sehr gut gemacht! 💪" : passed ? "Bestanden – gute Arbeit!" : "Noch nicht bestanden. Übe die markierten Aufgaben und versuche es noch einmal!";
+  const wrong = TS.log.filter(l => l.score<.999);
+  app.innerHTML = `
+  <div class="panel result">
+    <h1>Dein Ergebnis</h1>
+    <div class="ring" style="background:conic-gradient(${col} ${pct*3.6}deg,var(--grau-200) 0)"><div>${pct} %</div></div>
+    <p><b>${fmtPts(TS.score)} von ${n} Punkten</b></p>
+    <p>${msg}</p>
+    <span class="sync ${sent?"on":"off"}">${sent ? "✓ Ergebnis in Moodle gespeichert" : "Ohne Moodle-Verbindung – das Ergebnis wird nicht gespeichert."}</span>
+    ${wrong.length ? `<div class="review"><h2>Das solltest du noch üben</h2><ul>${wrong.map(l =>
+      `<li>${l.q.prompt}<br><span class="muted small">Richtig: ${l.q.solution}</span></li>`).join("")}</ul></div>` : ""}
+    <div class="actions">
+      ${wrong.length ? `<button class="btn primary" id="practice">Fehler gezielt üben</button>` : ""}
+      <button class="btn" id="again">Neuer Test</button>
+      <button class="btn ghost" data-go="home">Zur Startseite</button>
+    </div>
+  </div>`;
+  $("#again").onclick = startTest;
+  const p = $("#practice");
+  if(p) p.onclick = () => { setTab("train"); startTrain(["groups","react","env"], "mix", shuffle(wrong.map(l => l.q.spec))); };
+}
+
+viewHome();
+</script>
+</body>
+</html>
